@@ -9,7 +9,26 @@
   </head>
   <body>
     <main>
-      <header>HEADER CONTENT</header>
+      <header>
+        <div class="upper-header">
+          <img class="icon search" src="./img/search.svg" />
+          <input id="search" type="search" />
+
+          <img class="icon" src="./img/bell.svg" />
+          <img class="profile-img tiny" src="./img/profile-img.jpg" />
+          <p>Mauro Marcosano</p>
+        </div>
+        <div class="lower-header">
+          <img class="profile-img" src="./img/profile-img.jpg" />
+          <div class="greetings">
+            <p>Hi there,</p>
+            <h2>Mauro Marcosano (@maurom1889)</h2>
+          </div>
+          <button class="btn">New</button>
+          <button class="btn">Upload</button>
+          <button class="btn">Share</button>
+        </div>
+      </header>
 
       <aside>
         <div class="logo">
@@ -36,18 +55,44 @@
       </aside>
 
       <section>
-        My cards
+        <h2>My Projects</h2>
         <div class="card-container">
-          <a href="#">Recipes</a>
-          <a href="#">Landing page</a>
-          <a href="#">Rock Paper Scissor</a>
-          <a href="#">Etch-a-Sketch</a>
-          <a href="#">Calculator</a>
-          <a href="#">Sign-up Form</a>
+          <div class="card"><a href="#">Recipes</a></div>
+          <div class="card"><a href="#">Landing page</a></div>
+          <div class="card"><a href="#">Rock Paper Scissor</a></div>
+          <div class="card"><a href="#">Etch-a-Sketch</a></div>
+          <div class="card"><a href="#">Calculator</a></div>
+          <div class="card"><a href="#">Sign-up Form</a></div>
         </div>
+        <h2>Announcements</h2>
+        <div class="announcement-container">
+          <div class="announcement">
+            <h3>Site Maintenance</h3>
+            <p>
+              At exactly when the solar eclipes strikes, the site will be down.
+            </p>
+          </div>
+          <hr />
+          <div class="announcement">
+            <h3>New Version</h3>
+            <p>
+              Version 2.0 will be released soon with working features and
+              buttons!
+            </p>
+          </div>
+          <hr />
+          <div class="announcement">
+            <h3>Ads are welcome!</h3>
+            <p>
+              Do you want to scale your business up? Email directly and reach
+              clients and like never before!
+            </p>
+          </div>
+        </div>
+
+        <h2>Trending</h2>
+        <div class="trending-container">CONTENT</div>
       </section>
-      <div class="announcements">Announcements</div>
-      <div class="trending">Trending</div>
     </main>
 
     <script src="script.js"></script>
