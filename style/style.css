@@ -5,10 +5,11 @@
   font-weight: 400;
   font-style: normal;
 }
+
 main {
   display: grid;
   grid-template: auto 1fr auto / 1fr 4fr;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 /*Header Styles*/
@@ -85,8 +86,16 @@ header {
   outline: none;
   border-radius: 20px;
   background-color: #e9c46a;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
+.btn:hover {
+  background-color: #f4a261; /* Cambia el color de fondo al pasar el ratón */
+  transform: scale(1.05); /* Agranda ligeramente el botón */
+}
 /*Aside Menu*/
 
 aside {
@@ -146,7 +155,7 @@ section {
   grid-row-end: 4;
   background-color: rgb(225, 232, 240);
   display: grid;
-  grid-template-columns: 75% 25%;
+  grid-template-columns: 70% 30%;
   grid-template-rows: auto 1fr auto 1fr;
   column-gap: 20px;
 }
@@ -164,8 +173,8 @@ hr {
   grid-column: 1;
   grid-row: 2 / span 4;
   display: grid;
-  grid-template-columns: repeat(auto-fit, min(300px));
-  grid-template-rows: repeat(auto-fit, minmax(100px, 150px));
+  grid-template-columns: repeat(auto-fit, clamp(30%, 400px, 500px));
+  grid-template-rows: repeat(auto-fit, min(180px));
   gap: 20px;
 }
 .card {
@@ -185,6 +194,7 @@ hr {
 .announcement-container h3 {
   font-weight: 700;
   font-size: 1rem;
+  margin-bottom: 10px;
 }
 .trending-container {
   display: grid;
@@ -196,11 +206,19 @@ hr {
 .trending-profile {
   display: grid;
   grid-template: 1fr 1fr / auto 1fr;
-  column-gap: 20px;
+  column-gap: 15px;
+}
+.trending-profile h3 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.trending-profile p {
+  color: gray;
 }
 
 .trending-profile img {
   grid-row: 1 / span 2;
+  cursor: pointer;
 }
 .card,
 .announcement-container,
@@ -210,4 +228,124 @@ hr {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
   font-size: 0.85rem;
+}
+
+/*Cards*/
+
+.card {
+  display: grid;
+  grid-template: auto 1fr auto / 1fr auto auto auto;
+  gap: 10px;
+  transition: box-shadow 0.3s ease;
+}
+.card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.card a {
+  font-size: 1rem;
+  font-weight: 700;
+}
+.card a:hover {
+  text-decoration: underline;
+}
+
+.card p {
+  grid-row: 2;
+  grid-column: 1/ 4;
+}
+.card-icon {
+  height: 20px;
+  width: 20px;
+  grid-row: 3;
+  cursor: pointer;
+  transition: scale 0.3s ease;
+}
+.card-icon:hover {
+  transform: scale(1.2);
+}
+.card-icon.first {
+  grid-column: 2;
+}
+.card-icon.second {
+  grid-column: 3;
+}
+.card-icon.third {
+  grid-column: 4;
+}
+
+/*Animation*/
+
+.bell::before,
+.bell::after {
+  content: '';
+  background: white;
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2.17px;
+}
+.bell::before {
+  top: 100%;
+  width: 20px;
+}
+.bell::after {
+  top: calc(100% + 4px);
+  width: 7px;
+}
+/*container main styling*/
+.notification {
+  background: transparent;
+  border: none;
+  padding: 15px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 300ms;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*notifications number with before*/
+.notification::before {
+  content: '1';
+  color: white;
+  font-size: 10px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/*container animations*/
+.notification:hover > .bell-container {
+  animation: bell-animation 650ms ease-out 0s 1 normal both;
+}
+@keyframes bell-animation {
+  20% {
+    transform: rotate(15deg);
+  }
+
+  40% {
+    transform: rotate(-15deg);
+    scale: 1.1;
+  }
+  60% {
+    transform: rotate(10deg);
+    scale: 1.1;
+  }
+  80% {
+    transform: rotate(-10deg);
+  }
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
 }
