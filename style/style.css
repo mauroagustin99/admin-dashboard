@@ -211,6 +211,7 @@ hr {
 .trending-profile h3 {
   font-size: 1rem;
   font-weight: 500;
+  align-content: end;
 }
 .trending-profile p {
   color: gray;
